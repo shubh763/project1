@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import LeftNav from "./Navigation";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 
 const Contact= () =>{
@@ -25,7 +25,7 @@ const Contact= () =>{
         }
         let mycontact = {type: "contact", info: contactinfo}
         dispatch(mycontact)
-        toast.success("Your contact details saved successfully...")
+        swal("Save Success", "Your contact details saved successfully...", "success")
         setMobile("")
         setEmail("")
         setLocalAddress("")

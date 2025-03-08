@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LeftNav from "./Navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 
 const Project = () =>{
@@ -22,7 +22,7 @@ const Project = () =>{
         }
         let myinfo = {type: "project", info: proinfo}
         dispatch(myinfo)
-        toast.success("Your project details saved successfully")
+        swal("Save Success", "Your project details save successfully...", "success");
         setName("")
         setDetails("")
         setTechno("")

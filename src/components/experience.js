@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LeftNav from "./Navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 
 const Experience = () =>{
@@ -18,7 +18,7 @@ const Experience = () =>{
         }
         let myData = {type: "experience", info: exinfo}
         dispatch(myData)
-        toast.success("Your work experience details saved successfully")
+        swal("Save Success","Your work experience details saved successfully", "success")
         setTotal("")
         setAbout("")
     }

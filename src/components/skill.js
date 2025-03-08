@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import LeftNav from "./Navigation";
 import { useState } from "react";
-import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 
 const Skill = () =>{
@@ -16,7 +16,7 @@ const Skill = () =>{
         }
         let myskill = { type: "skill", info: skillinfo}
         dispatch(myskill)
-        toast.success("Your Skills are Saved Successfully...")
+        swal("Save Success", "Your Skills are Saved Successfully...", "success")
         setSkills("")
     }
     return(

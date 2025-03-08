@@ -1,7 +1,7 @@
 import { useState } from "react";
 import LeftNav from "./Navigation";
 import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import swal from "sweetalert";
 
 
 const Education = () =>{
@@ -23,7 +23,7 @@ const Education = () =>{
         }
         let myedu = {type: "education", info: eduinfo}
         dispatch(myedu)
-        toast.success("Your education details saved Successfully..")
+        swal("Save Success", "Your education details saved Successfully..", "success")
         setHighEdu("")
         setPassout("")
         setGrade("")

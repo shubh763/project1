@@ -12,6 +12,10 @@ const Experience = () =>{
     const dispatch = useDispatch()
 
     const save=()=>{
+        if (!total || !about ) {
+            swal("Error", "All fields are required!", "error");
+            return;
+          }
         let exinfo ={
             "totalex": total,
             "aboutex":about
@@ -30,7 +34,7 @@ const Experience = () =>{
             </div>
             <div className="col-xl-7 mb-4 ">
                     <div className="card border-0 shadow-lg">
-                        <div className="card-header bg-info text-white"> <i class="fa-solid fa-user-graduate"></i> Experience Imformation </div>
+                        <div className="card-header bg-info text-white"> <i className="fa-solid fa-user-graduate"></i> Experience Information </div>
                         <div className="card-body "> 
                             <form action="">
                                 

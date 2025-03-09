@@ -14,6 +14,10 @@ const Education = () =>{
 
     const dispatch = useDispatch()
     const save=()=>{
+        if (!highedu || !passout || !grade || !college || !city) {
+            swal("Error", "All fields are required", "error");
+            return;
+          }
         let eduinfo ={
             "higheredu": highedu,
             "passout": passout,
@@ -40,7 +44,7 @@ const Education = () =>{
             </div>
             <div className="col-xl-7 mb-4 ">
                     <div className="card border-0 shadow-lg">
-                        <div className="card-header bg-info text-white"> <i class="fa-solid fa-user-graduate"></i> Education Imformation </div>
+                        <div className="card-header bg-info text-white"> <i className="fa-solid fa-user-graduate"></i> Education Information </div>
                         <div className="card-body "> 
                             <form action="">
                                 

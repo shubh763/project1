@@ -10,7 +10,14 @@ const Skill = () =>{
 
     const dispatch = useDispatch()
 
-    const save=()=>{
+    const save=(obj)=>{
+        obj.preventDefault()
+
+        if (!skills) {
+            swal("Error", "All fields are required!", "error");
+            return;
+        }
+
         let skillinfo ={
             "skills": skills
         }
@@ -27,17 +34,17 @@ const Skill = () =>{
             </div>
             <div className="col-xl-7 mb-4 ">
                     <div className="card border-0 shadow-lg">
-                        <div className="card-header bg-info text-white"> <i class="fa-solid fa-user-graduate"></i> Skill Imformation </div>
+                        <div className="card-header bg-info text-white"> <i className="fa-solid fa-user-graduate"></i> Skill Information </div>
                         <div className="card-body "> 
-                            <form action="">
+                            <form onSubmit={save}>
                                 
                                 <div className="form-group row"><div className="mb-4 ">
                                     <label className="mb-2"> Skill</label>
                                     <textarea  placeholder="Enter Skill" className="form-control" value={skills} onChange={(obj)=>setSkills(obj.target.value)}></textarea>
                                     </div>
 
-                                    <div class="text-center pb-2">
-                                      <button class="btn btn-danger me-3" onClick={save}> Save & Contiue </button>
+                                    <div className="text-center pb-2">
+                                      <button className="btn btn-danger me-3" type="submit"> Save & Contiue </button>
                                     </div>
 
 
@@ -52,7 +59,7 @@ const Skill = () =>{
             <div className="col-xl-3 mb-4"></div>
         </div>
     </div>
-        )
+)
     
 }
 

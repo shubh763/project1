@@ -14,6 +14,10 @@ const Project = () =>{
     const dispatch = useDispatch()
 
     const save=()=>{
+        if (!name || !details || !techno || !url ) {
+            swal("Error", "All fields are required!", "error");
+            return;
+        }
         let proinfo ={
             "proname": name,
             "details":details,
@@ -38,7 +42,7 @@ const Project = () =>{
             </div>
             <div className="col-xl-7 mb-4 ">
                     <div className="card border-0 shadow-lg">
-                        <div className="card-header bg-info text-white"> <i class="fa-solid fa-user-graduate"></i> Project Imformation </div>
+                        <div className="card-header bg-info text-white"> <i className="fa-solid fa-user-graduate"></i> Project Information </div>
                         <div className="card-body "> 
                             <form action="">
                                 
@@ -68,7 +72,6 @@ const Project = () =>{
                                     <div class="text-center pb-2">
                                       <button class="btn btn-danger me-3" onClick={save}> Save & Contiue </button>
                                     </div>
-
                                 </div>
 
                             </form>

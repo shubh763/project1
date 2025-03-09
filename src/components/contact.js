@@ -13,9 +13,33 @@ const Contact= () =>{
     const [permanentaddress, setPermanentAddress] = useState(contactdata.permanentaddress)
     const [referenceaddress, setReferenceAddress] = useState(contactdata.referenceaddress)
 
+    const validateEmail = (email) => {
+        return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+      };
+    
+      const validatePhone = (mobile) => {
+        return /^[0-9]{10}$/.test(mobile); 
+      };
+
     const dispatch = useDispatch()
 
     const save =()=>{
+
+        if (!mobile || !email || !localaddress || !permanentaddress || !referenceaddress) {
+            swal("Error", "All fields are required", "error");
+            return;
+          }
+
+        if (!validateEmail(email)) {
+            swal("Error", "Please enter a valid email address.", "error");
+            return;
+          }
+      
+          if (!validatePhone(mobile)) {
+            swal("Error", "Please enter a valid 10-digit phone number.", "error");
+            return;
+          }
+
         let contactinfo={
             "mobile": mobile,
             "email": email,
@@ -42,7 +66,7 @@ const Contact= () =>{
             </div>
             <div className="col-xl-7 mb-4 ">
                     <div className="card border-0 shadow-lg">
-                        <div className="card-header bg-info text-white"> <i class="fa fa-headset" aria-hidden="true"></i> Contact Imformation </div>
+                        <div className="card-header bg-info text-white"> <i className="fa fa-headset" aria-hidden="true"></i> Contact Information </div>
                         <div className="card-body "> 
                             <form action="">
                                 

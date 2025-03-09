@@ -13,8 +13,13 @@ const Basic = () => {
   let [profilestatus, setStatus] = useState(basicdata.profilestatus);
   let [about, setAbout] = useState(basicdata.about);
 
+
   let dispatch = useDispatch();
   const save = () => {
+    if (!name || !dob || !gender || !married || !profilestatus || !about) {
+        swal("Error", "All fields are required!", "error");
+        return;
+      }
     let userinfo = {
       fullname: name,
       dob: dob,
@@ -43,9 +48,8 @@ const Basic = () => {
         <div className="col-xl-7 mb-4 ">
           <div className="card border-0 shadow-lg">
             <div className="card-header bg-info text-white">
-              {" "}
-              <i class="fa fa-info-circle" aria-hidden="true"></i> Basic
-              Information{" "}
+              <i className="fa fa-info-circle" aria-hidden="true"></i> Basic
+              Information
             </div>
             <div className="card-body ">
               <div className="form-group row">
@@ -65,7 +69,7 @@ const Basic = () => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="DOB"
+                    placeholder="DD/MM/YYYY"
                     onChange={(obj) => setDob(obj.target.value)}
                     value={dob}
                   />
@@ -125,8 +129,7 @@ const Basic = () => {
 
                 <div class="text-center pb-2">
                   <button class="btn btn-danger me-3" onClick={save}>
-                    {" "}
-                    Save & Contiue{" "}
+                    Save & Contiue
                   </button>
                 </div>
               </div>
